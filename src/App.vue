@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="test01"/>
-    <HelloWorld2 msg="test02"/>
+    <HelloWorld2 msg="test02" title="第二个标题"/>
   </div>
 </template>
 
