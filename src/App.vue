@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="test01"/>
-    <HelloWorld2 msg="test02" title="第二个标题"/>
+    <img alt="Vue logo"
+         src="./assets/logo.png">
+    <HelloWorld msg="test01"
+                @foo="onFoo($event)" />
+    <HelloWorld2 msg="test02"
+                 ref="hw"
+                 title="第二个标题" />
+    <p ref="pMsg">{{oldMsg}}</p>
+
+    <button @click="changeMsg()">点我修改内容</button>
   </div>
 </template>
 
@@ -12,10 +19,45 @@ import HelloWorld2 from './components/HelloWorld02.vue'
 
 export default {
   name: 'App',
+  provide: {
+    pfoo: 'pfoo'
+  },
+  data () {
+    return {
+      oldMsg: '这是默认值',
+      newMsg: '我是新的内容'
+    }
+  },
   components: {
     HelloWorld,
     HelloWorld2
+  },
+  created () {
+    //父组件先于子组件创建
+    console.log(this.$refs.hw);
+
+    this.$on('test01', () => {
+      console.log('test01');
+
+    })
+
+  },
+  mounted () {
+    this.$refs.hw.foo = "bar"
+
+    this.$children[1].foo = 'dong'
+
+  },
+  methods: {
+    changeMsg () {
+      this.$refs.pMsg.innerHTML = this.newMsg
+    },
+    onFoo (e) {
+      console.log('this emit foo: ' + e);
+
+    }
   }
+
 }
 </script>
 

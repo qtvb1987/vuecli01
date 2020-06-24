@@ -1,13 +1,15 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    
+  <div class="hello"
+       @click="$parent.$emit('test01')">
+    <h1 @click="$emit('foo','str')">{{ msg }}-{{pfoo}}</h1>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
+  inject: ['pfoo'],
   props: {
     msg: String
   }
