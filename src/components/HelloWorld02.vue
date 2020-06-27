@@ -1,5 +1,7 @@
 <template>
+
   <div class="hello">
+    <p @click="$bus.$emit('bustest02')"> hello2</p>
     <h1 :title="title">{{ msg }}-{{title}}</h1>
     {{foo}}
   </div>
@@ -15,6 +17,11 @@ export default {
   data () {
     return {
       foo: 'foo'
+    }
+  },
+  methods: {
+    eventBus () {
+      this.$bus.$emit('bustest02')
     }
   },
   created () {

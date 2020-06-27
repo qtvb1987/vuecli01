@@ -12,6 +12,12 @@ export default {
   inject: ['pfoo'],
   props: {
     msg: String
+  },
+  mounted () {
+    this.$bus.$on('bustest02', () => {
+      console.log('bustest02事件');
+
+    })
   }
 }
 </script>
