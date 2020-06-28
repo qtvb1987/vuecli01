@@ -4,6 +4,20 @@
     <p @click="$bus.$emit('bustest02')"> hello2</p>
     <h1 :title="title">{{ msg }}-{{title}}</h1>
     {{foo}}
+    <br>
+    <!-- 匿名插槽 -->
+    <slot></slot>
+
+    <!-- 具名插槽 -->
+    <template>
+      <slot name="footer"></slot>
+    </template>
+    <!-- 作用域插槽 -->
+    <template>
+      <slot name="main"
+            zuoyongyu="zuoyongyu....."
+            zuo2="zuo2"></slot>
+    </template>
   </div>
 </template>
 

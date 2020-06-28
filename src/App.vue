@@ -6,7 +6,15 @@
                 @foo="onFoo($event)" />
     <HelloWorld2 msg="test02"
                  ref="hw"
-                 title="第二个标题" />
+                 title="第二个标题">
+      我是来自父组件的内容，匿名插槽获取的值
+      <template v-slot:footer>
+        <p>我是具名插槽</p>
+      </template>
+      <template v-slot:main="{zuoyongyu,zuo2}">
+        {{zuoyongyu}}-{{zuo2}}
+      </template>
+    </HelloWorld2>
     <p ref="pMsg">{{oldMsg}}</p>
 
     <button @click="changeMsg()">点我修改内容</button>
@@ -19,13 +27,14 @@ import HelloWorld2 from './components/HelloWorld02.vue'
 
 export default {
   name: 'App',
-  provide: {
-    pfoo: 'pfoo'
+  provide () {
+    return { pfoo: this.mpfoo }
   },
   data () {
     return {
       oldMsg: '这是默认值',
-      newMsg: '我是新的内容'
+      newMsg: '我是新的内容',
+      mpfoo: 'pfooprovide'
     }
   },
   components: {
