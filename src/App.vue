@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo"
+
+    <!-- <img alt="Vue logo"
          src="./assets/logo.png">
     <HelloWorld msg="test01"
                 @foo="onFoo($event)" />
@@ -17,14 +18,16 @@
     </HelloWorld2>
     <p ref="pMsg">{{oldMsg}}</p>
 
-    <button @click="changeMsg()">点我修改内容</button>
+    <button @click="changeMsg()">点我修改内容</button> -->
+
+    <FormTest></FormTest>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import HelloWorld2 from './components/HelloWorld02.vue'
-
+// import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld2 from './components/HelloWorld02.vue'
+import FormTest from './components/form'
 export default {
   name: 'App',
   provide () {
@@ -38,33 +41,34 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    HelloWorld2
+    // HelloWorld,
+    // HelloWorld2,
+    FormTest
   },
   created () {
     //父组件先于子组件创建
-    console.log(this.$refs.hw);
+    // console.log(this.$refs.hw);
 
-    this.$on('test01', () => {
-      console.log('test01');
+    // this.$on('test01', () => {
+    //   console.log('test01');
 
-    })
+    // })
 
   },
   mounted () {
-    this.$refs.hw.foo = "bar"
+    // this.$refs.hw.foo = "bar"
 
-    this.$children[1].foo = 'dong'
+    // this.$children[1].foo = 'dong'
 
   },
   methods: {
-    changeMsg () {
-      this.$refs.pMsg.innerHTML = this.newMsg
-    },
-    onFoo (e) {
-      console.log('this emit foo: ' + e);
+    // changeMsg () {
+    //   this.$refs.pMsg.innerHTML = this.newMsg
+    // },
+    // onFoo (e) {
+    //   console.log('this emit foo: ' + e);
 
-    }
+    // }
   }
 
 }
