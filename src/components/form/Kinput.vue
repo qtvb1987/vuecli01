@@ -21,6 +21,9 @@ export default {
     onInput (e) {
       // 通知父组件数值变化
       this.$emit('input', e.target.value)
+
+      //通知Formitem校验
+      this.$parent.$emit('validate')
     }
   }
 }
