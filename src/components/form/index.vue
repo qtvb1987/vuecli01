@@ -12,9 +12,16 @@
         <KInput v-model="model.password"
                 type="password"></KInput>
       </KFormItem>
+      <KFormItem label="记住密码"
+                 prop="password">
+        <!-- <KCheckBox v-model="model.remember"></KCheckBox> -->
+        <KCheckBox :checked="model.remember"
+                   @change="model.remember=$event"></KCheckBox>
+      </KFormItem>
       <KFormItem>
         <button @click="onLogin">登陆</button>
       </KFormItem>
+
     </KForm>
     {{model}}
   </div>
@@ -24,17 +31,20 @@
 import KInput from './Kinput.vue';
 import KFormItem from './KFormItem.vue'
 import KForm from './KForm.vue'
+import KCheckBox from './KCheckBox.vue'
 export default {
   components: {
     KInput,
     KFormItem,
-    KForm
+    KForm,
+    KCheckBox
   },
   data () {
     return {
       model: {
         username: 'tom',
-        password: ''
+        password: '',
+        remember: true
       },
       rules: {
         username: [{ required: true, message: '用户名不能为空' }],
