@@ -32,6 +32,8 @@ import KInput from './Kinput.vue';
 import KFormItem from './KFormItem.vue'
 import KForm from './KForm.vue'
 import KCheckBox from './KCheckBox.vue'
+import Notice from '../Notice'
+import create from '@/utils/create'
 export default {
   components: {
     KInput,
@@ -54,17 +56,30 @@ export default {
   },
   methods: {
     onLogin () {
+      //创建弹窗实例
+      let notice2;
       this.$refs.loginForm.validate((isValid) => {
         if (isValid) {
-          alert('登陆ok')
+          notice2 = create(Notice, {
+            title: "登陆窗口",
+            message: "登陆成功",
+            duration: 10000
+          })
+          //alert('登陆ok')
           //console.log('ok');
 
         }
         else {
+          notice2 = create(Notice, {
+            title: "登陆窗口",
+            message: "有错",
+            duration: 10000
+          })
           //console.log('no');
 
-          alert('登陆失败')
+          //alert('登陆失败')
         }
+        notice2.show();
       })
     }
   }
