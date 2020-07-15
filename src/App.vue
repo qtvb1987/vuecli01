@@ -19,15 +19,16 @@
     <p ref="pMsg">{{oldMsg}}</p>
 
     <button @click="changeMsg()">点我修改内容</button> -->
-
-    <FormTest></FormTest>
+    <Tree></Tree>
+    <!-- <FormTest></FormTest> -->
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import HelloWorld2 from './components/HelloWorld02.vue'
-import FormTest from './components/form'
+// import FormTest from './components/form'
+import Tree from './components/tree'
 export default {
   name: 'App',
   provide () {
@@ -43,7 +44,8 @@ export default {
   components: {
     // HelloWorld,
     // HelloWorld2,
-    FormTest
+    // FormTest,
+    Tree
   },
   created () {
     //父组件先于子组件创建
