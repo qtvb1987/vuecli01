@@ -6,6 +6,7 @@ import Detail from '../views/Detail.vue'
 Vue.use(VueRouter) // 引入router插件
 
 const routes = [{
+    name: 'home',
     path: '/',
     component: Home,
     children: [{
@@ -15,6 +16,7 @@ const routes = [{
       },
       {
         path: "/detail/:id",
+        name: 'detail',
         component: Detail,
         props: true
       }
