@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
+import List from './views/List.vue'
 import VueRouter from './kvue-router'
 
 //插件注册
@@ -14,6 +15,10 @@ export default new VueRouter({
     {
       path: '/about',
       component: About
+    },
+    {
+      path: '/list',
+      component: List
     }
   ]
 })
