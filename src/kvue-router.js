@@ -80,6 +80,7 @@
        //this 是Vue实例
        //但是这里只希望根组件执行一次
        if (this.$options.router) {
+         console.log(this.$options.router);
          KVue.prototype.$router = this.$options.router;
          this.$options.router.init();
        }

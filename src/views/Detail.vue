@@ -24,10 +24,19 @@ export default {
       default: ''
     }
   },
-  mounted () {
-    console.log(this.$route.matched);
-    this.crumbData = this.$route.matched.map(m => m.name)
+  // mounted () {
+  //   console.log(this.$route.matched);
+  //   this.crumbData = this.$route.matched.map(m => m.name)
 
+  // },
+  watch: {
+    $route: {
+      handler () {
+        console.log(this.$route.matched);
+        this.crumbData = this.$route.matched.map(m => m.name || m.redirect);
+      },
+      immediate: true //这一行要加上，让它一开始执行一次
+    }
   }
 
 }

@@ -6,6 +6,14 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$bus = new Vue();
 
+Vue.prototype.$xxxx = "xxxx";
+Vue.prototype.$reverseText = function (propertyName) {
+  this[propertyName] = this[propertyName]
+    .split('')
+    .reverse()
+    .join('')
+}
+
 new Vue({
   router,
   render: h => h(App)
