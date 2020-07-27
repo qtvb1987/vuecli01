@@ -3,7 +3,7 @@
     list
     <ul>
       <li>
-        <!-- <router-link to="/detail/3">详情</router-link> -->
+        <router-link to="/detail/3">详情</router-link>
       </li>
     </ul>
   </div>

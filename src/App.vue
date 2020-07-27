@@ -1,14 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- 路由 -->
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/list">List</router-link>
     </div>
-    <router-view />
+    <router-view /> -->
+
+    <FormTest></FormTest>
   </div>
 </template>
-
+<script>
+import FormTest from './components/form';
+export default {
+  components: {
+    FormTest
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

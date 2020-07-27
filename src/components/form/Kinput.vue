@@ -9,8 +9,10 @@
 </template>
 
 <script>
+import emmiter from '@/mixins/emmiter';
 export default {
   inheritAttrs: false,
+  mixins: [emmiter],
   props: {
     value: {
       type: String,
@@ -23,7 +25,8 @@ export default {
       this.$emit('input', e.target.value)
 
       //通知Formitem校验
-      this.$parent.$emit('validate')
+      //this.$parent.$emit('validate')
+      this.dispatch('validate')
     }
   }
 }
