@@ -7,15 +7,16 @@
       <router-link to="/list">List</router-link>
     </div>
     <router-view /> -->
-
-    <FormTest></FormTest>
+    <VuexTest></VuexTest>
+    <!-- <FormTest></FormTest> -->
   </div>
 </template>
 <script>
-import FormTest from './components/form';
+// import FormTest from './components/form';
+import VuexTest from './components/VuexTest';
 export default {
   components: {
-    FormTest
+    VuexTest
   }
 }
 </script>
