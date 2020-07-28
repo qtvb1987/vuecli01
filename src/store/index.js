@@ -18,6 +18,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    //提交mutations方法
     //复杂业务逻辑，类似于controller
     //比如ajax请求
     asyncAdd({
