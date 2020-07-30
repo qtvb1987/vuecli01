@@ -57,7 +57,7 @@ class Store {
     Object.keys(getters).forEach(key => {
       Object.defineProperty(this.getters, key, {
         get: () => {
-          return getters[key](this.state);
+          return getters[key](this.state); //getters 函数 添加 state参数
         }
       })
     })
